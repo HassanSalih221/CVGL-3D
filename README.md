@@ -21,5 +21,10 @@ conda activate cvgl
 conda install pytorch torchvision cudatoolkit
 ```
 
+## Quick Start
+```
+python train_universityMM.py
+```
+
 ## Contact
 If you have any question about this project, please feel free to contact hyzhang@stu.xmu.edu.cn.
