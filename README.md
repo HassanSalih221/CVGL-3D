@@ -1,5 +1,5 @@
 # SkyLink: Unifying Street-Satellite Geo-Localization via UAV-Mediated 3D Scene Alignment
-- Official code for 2025 ACM'MM UAV Challenging paper, TeamName: XMUSmart;
+- Official code for 2025 ACM'MM UAV Challenging paper (https://codalab.lisn.upsaclay.fr/competitions/22073), TeamName: XMUSmart;
 - **News (2025.07.07): Comming Soon! Codes will be released upon the paper's publicationd.**
 
 ## Description 📜
