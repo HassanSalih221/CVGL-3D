@@ -92,10 +92,6 @@ def which_view(name):
         print('unknown view')
     return -1
 
-# tta_transforms = tta.Compose([
-#     tta.HorizontalFlip(),        # 水平翻转（安全且有效）
-#     tta.Rotate90(angles=[0]),    # 保留原方向，避免额外旋转带来的不适配
-# ])
 
 tta_transforms = tta.Compose([
     tta.HorizontalFlip(),
@@ -171,25 +167,6 @@ def re_ranking(q_g_dist, q_q_dist, g_g_dist, k1=20, k2=6, lambda_value=0.3):
     final_dist = (1 - lambda_value) * original_dist + lambda_value * dist
     return final_dist
 
-# def get_result_rank10(qf, gf, gl, use_rerank=True):
-#     query = qf.view(1, -1) # (1, D)
-#     if use_rerank:
-#         # compute distance matrix
-#         q_g_dist = compute_distmat(query, gf)
-#         q_q_dist = compute_distmat(query, query)
-#         g_g_dist = compute_distmat(gf, gf)
-#         rerank_dist = re_ranking(q_g_dist, q_q_dist, g_g_dist)
-#         score = -rerank_dist[0] # 取负，因为距离越小越相似
-#     else:
-#         # dot product similarity
-#         query = query.view(-1,1)
-#         score = torch.mm(gf, query).squeeze(1).cpu().numpy()
-
-#     index = np.argsort(score)[::-1]
-#     rank10_index = index[:10]
-#     result_rank10 = gl[rank10_index]
-#     return result_rank10
-
 def get_result_rank10(qf,gf,gl):
     query = qf.view(-1,1)
     score = torch.mm(gf, query)
@@ -220,7 +197,7 @@ if __name__ == "__main__":
                         'mlp_ratio': 1,
                         'out_rows': 4}
         layer1 = 7
-        checkpoint_start = 'university_3view_adapter_ssl3.0_lr0.0005_adapter_dropout0.09_data_aug/dinov2_vitl14_MixVPR/2025-06-21_095349/weights_e4_0.2706.pth'
+        checkpoint_start = ''
         # point clip
         num_views: int = 10
         backbone_name: str = 'RN101'
