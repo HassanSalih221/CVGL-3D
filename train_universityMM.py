@@ -22,10 +22,6 @@ from cvcities_base.model import TimmModel
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
-import warnings
-# 忽略特定的 libpng 警告
-warnings.filterwarnings("ignore", message=".*iCCP: known incorrect sRGB profile.*")
-
 @dataclass
 class Configuration:
     # Model
@@ -90,7 +86,7 @@ class Configuration:
     prob_flip: float = 0.5  # flipping the sat image and drone image simultaneously
 
     # Savepath for model checkpoints
-    model_path: str = "./university_3view_adapter_ssl3.0_lr0.0005_adapter_wo_cvcl"
+    model_path: str = ""
 
     # Eval before training
     zero_shot: bool = False
