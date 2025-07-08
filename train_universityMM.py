@@ -10,15 +10,15 @@ from torch.utils.data import DataLoader
 from transformers import get_constant_schedule_with_warmup, get_polynomial_decay_schedule_with_warmup, \
     get_cosine_schedule_with_warmup
 
-from cvcities_base.dataset.university import U1652DatasetEval, U1652DatasetTrain, get_transforms
-from cvcities_base.utils import setup_system, Logger
-from cvcities_base.trainer import train
-from cvcities_base.evaluate.university import evaluate
-from cvcities_base.loss.loss import InfoNCE
-from cvcities_base.loss.blocks_infoNCE import blocks_InfoNCE
-from cvcities_base.loss.DSA_loss import DSA_loss
-from cvcities_base.loss.supcontrast import SupConLoss
-from cvcities_base.model import TimmModel
+from cvgl_base.dataset.university import U1652DatasetEval, U1652DatasetTrain, get_transforms
+from cvgl_base.utils import setup_system, Logger
+from cvgl_base.trainer import train
+from cvgl_base.evaluate.university import evaluate
+from cvgl_base.loss.loss import InfoNCE
+from cvgl_base.loss.blocks_infoNCE import blocks_InfoNCE
+from cvgl_base.loss.DSA_loss import DSA_loss
+from cvgl_base.loss.supcontrast import SupConLoss
+from cvgl_base.model import TimmModel
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
@@ -80,7 +80,7 @@ class Configuration:
 
     # Dataset
     dataset: str = 'U1652-G2S'  # 'U1652-D2S' | 'U1652-S2D'
-    data_folder: str = r"/home/zhanghy/MM/data/University-1652"
+    data_folder: str = "your_data_path"
 
     # Augment Images
     prob_flip: float = 0.5  # flipping the sat image and drone image simultaneously
